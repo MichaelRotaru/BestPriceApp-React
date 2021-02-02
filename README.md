@@ -1,5 +1,5 @@
-##BestPriceApp-React
-##Abstract
+# BestPriceApp-React
+## Abstract
 
 This project can be implemented as a startup and its dedicated to a wide range of clients.
 The application comes to the aid of buyers by offering solutions for organizing, streamlining
