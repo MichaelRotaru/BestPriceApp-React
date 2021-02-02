@@ -1,0 +1,73 @@
+.navigator {
+  height: $menu-height !important;
+  z-index: $zindex-menu;
+  display: flex;
+  align-items: center;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+
+  box-shadow: $shadow;
+  @include media-breakpoint-up(md) {
+    box-shadow: none;
+  }
+
+  a.nav-main-btn {
+    color: black !important;
+  }
+
+  .rotate {
+    @include transform(rotate(0deg) scale(1));
+    @include transition(0.5s ease);
+
+    &:active,
+    &:focus,
+    &:hover {
+      @include transform(rotate(45deg) scale(1.2,1.2));
+    }
+  }
+
+  .lists-menu-btn{
+    @include media-breakpoint-up(xl) {
+      display: none !important;
+    }
+  }
+  .nav-secondary-btn{
+    color: black;
+  }
+}
+
+.btn-black {
+  background-color: #000 !important;
+  color: white !important;
+  &:active,
+  &:focus,
+  &:hover {
+    color: white !important;
+  }
+}
+
+.btn-outline-dark {
+  &:active,
+  &:focus,
+  &:hover {
+    color: white !important;
+    background: black!important;
+  }
+}
+
+.btn,
+input {
+  border-radius: 0!important;
+}
+
+.btn-forgot{
+  color: black;
+  &:active,
+  &:focus,
+  &:hover {
+    color: black !important;
+  }
+  margin-top: $grid-spacing*2;
+  display: block;
+}

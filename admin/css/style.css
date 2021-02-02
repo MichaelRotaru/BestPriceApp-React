@@ -1,0 +1,16 @@
+.auth-cointainer {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+
+.auth-container.login .card {
+  min-width: 400px !important;
+}
+
+.help-block {
+  color: red;
+}

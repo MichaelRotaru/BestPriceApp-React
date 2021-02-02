@@ -1,0 +1,7 @@
+15:57:53 - INIT SCRAPPER UPDATE
+15:57:53 - Se incearca accesarea scrapperului #12
+15:57:55 - Scrapper actualizat cu success pentru vanzatorul #12
+15:58:00 - INIT CRON SYNC
+15:58:00 - Se incearca sincronizarea vanzatorului #12
+15:58:17 - Sincronizare cu success pentru vanzatorul #12
+15:58:17 - Rezultat: Status<ul><li>0 Erori</li><li>60 Linii procesate</li><li>60 Produse create</li><li>60 Noi legaturi</li></ul>

@@ -1,0 +1,8 @@
+.sidebar{
+  .sidebar_title{
+      font-weight: bold;
+      @include font-scale("5x");
+  }
+  .sidebar_desc{
+  }
+}

@@ -1,2 +1,4 @@
+.admin/uploads/
+.shopping/node_modules/
 .admin/uploads/*
 .shopping/node_modules/*

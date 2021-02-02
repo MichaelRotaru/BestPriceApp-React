@@ -1,0 +1,19 @@
+.section-list-selector{
+  z-index: $zindex-sidebar;
+  position: fixed !important;
+  display: flex;
+  box-shadow: $shadow;
+  @include media-breakpoint-up(md) {
+    box-shadow: none;
+  }
+  @include media-breakpoint-up(xl) {
+    position: relative !important;
+  }
+
+  &.closed{
+    display: none;
+    @include media-breakpoint-up(xl) {
+      display: flex;
+    }
+  }
+}

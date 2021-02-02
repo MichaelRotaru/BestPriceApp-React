@@ -1,0 +1,92 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import './src/sass/utils/_mixes.scss',
+'./src/sass/utils/_variables.scss',
+'./src/sass/scenes/_dashboard.scss',
+'./src/sass/components/_nav.scss',
+'./src/sass/components/_sidebar.scss',
+'./src/sass/components/_listSelector.scss',
+
+'./src/sass/scenes/_dashboard.scss';
+
+html,body{
+  padding: 0;
+}
+
+ul{
+  margin: $grid-spacing 0 !important;
+  padding-left: $grid-spacing * 5 !important;
+}
+
+.pt-toast-container{
+  z-index: $zindex-toaster!important;
+}
+.yellow{
+  background-color: $yellow;
+}
+
+.gray{
+  background-color: #eeeeee;
+}
+
+.fixed{
+  position: relative !important;
+  @include media-breakpoint-up(xl) {
+      position: fixed !important;
+  }
+}
+.refx{
+  margin-top:1000px;
+}
+.loader{
+  height: 100vh;
+}
+
+.section{
+  padding-top: $menu-height/2 !important;
+  &.has-menu{
+    padding-top: $menu-height*1.5 !important;
+  }
+  padding-bottom: $menu-height/2 !important;
+  @include media-breakpoint-up(md) {
+    .has-menu{
+
+    }
+    padding-top: $menu-height/2 !important;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: scroll;
+    margin-bottom: 0;
+  }
+}
+
+.section-list-selector{
+  padding-bottom: $menu-height/2 !important;
+  padding-top: $menu-height*1.5 !important;
+}
+
+.section-shopping-list{
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: $menu-height*1.5 !important;
+    padding-top: $menu-height+10 !important;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+.section-suggestions{
+  padding-bottom: $menu-height*1.5 !important;
+  padding-top: $menu-height+10 !important;
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
+}

@@ -1,0 +1,135 @@
+/* Definitii functiilor ajutatoare */
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+@mixin transform($expression) {
+  -webkit-transform: $expression;
+  -moz-transform: $expression;
+  -ms-transform: $expression;
+  transform: $expression;
+}
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+@mixin shadow($t, $l, $b, $s, $color) {
+  -webkit-box-shadow: $t $l $b $s $color;
+  -moz-box-shadow: $t $l $b $s $color;
+  box-shadow: $t $l $b $s $color;
+}
+@mixin transition($transition...) {
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+@mixin transition-property($property...) {
+  -moz-transition-property: $property;
+  -o-transition-property: $property;
+  -webkit-transition-property: $property;
+  transition-property: $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-property: $duration;
+  -o-transition-property: $duration;
+  -webkit-transition-property: $duration;
+  transition-property: $duration;
+}
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function: $timing;
+  -o-transition-timing-function: $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function: $timing;
+}
+@mixin transition-delay($delay...) {
+  -moz-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay: $delay;
+}
+@mixin grayscale($percent) {
+  -webkit-filter: grayscale($percent);
+  -moz-filter: grayscale($percent);
+  -o-filter: grayscale($percent);
+  -ms-filter: grayscale($percent);
+  filter: grayscale($percent);
+}
+@mixin border-radius($value) {
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  border-radius: $value;
+}
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+  @if $fallback {
+    font-size: $fallback;
+  }
+  font-size: $responsive;
+}
+@mixin font-face($name,$url){
+  @font-face {
+      font-family: $name;
+      src: url($url+".eot"); /* IE9 Compat Modes */
+      src: url($url+".eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+           url($url+".woff") format("woff"), /* Modern Browsers */
+           url($url+".ttf")  format("truetype"), /* Safari, Android, iOS */
+           url($url+".svg#svgFontName") format("svg"); /* Legacy iOS */
+  }
+}
+@mixin font-scale($scale) {
+  @if $scale == "8v" {
+    @include responsive-font(7vw, 80px, 120px, 16px);
+  } @else if $scale == "7x" {
+    @include responsive-font(5vw, 50px, 90px, 16px);
+  } @else if $scale == "6x" {
+    @include responsive-font(4vw, 40px, 80px, 16px);
+  } @else if $scale == "5x" {
+    @include responsive-font(3vw, 30px, 60px, 16px);
+  } @else if $scale == "4.5x" {
+    @include responsive-font(2.5vw, 25px, 55px, 16px);
+  } @else if $scale == "4x" {
+    @include responsive-font(2vw, 20px, 50px, 16px);
+  } @else if $scale == "3x" {
+    @include responsive-font(1.5vw, 16px, 45px, 16px);
+  } @else if $scale == "2x" {
+    @include responsive-font(1.2vw, 14px, 40px, 16px);
+  } @else if $scale == "1x" {
+    @include responsive-font(0.9vw, 13px, 30px, 16px);
+  } @else {
+    @include responsive-font(0.4vw, 10px, 20px, 16px);
+  }
+}
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}

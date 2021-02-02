@@ -1,0 +1,288 @@
+.list-name {
+  font-weight: bold;
+  @include font-scale("4x");
+}
+// SHOPPING LIST START
+.shopping-list-wp {
+  min-height: 90vh;
+  margin-top: $grid-large-spacing/2;
+  margin-bottom: $grid-large-spacing/2;
+
+  .searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+  }
+
+  .shopping-list {
+    margin-top: $grid-large-spacing/2;
+    margin-bottom: $grid-large-spacing/2;
+    background: white;
+    padding: 20px 15px;
+    border-radius: 10px;
+    min-height: 70vh;
+
+    .shopping-list_insertable {
+      margin-bottom: $grid-spacing * 2;
+      border:0;
+
+      .list-group-item {
+        padding-left: $grid-spacing;
+        padding-right: $grid-spacing;
+      }
+
+      .link {
+        opacity: 0.6;
+        @include font-scale("1x");
+      }
+    }
+
+    .shopping-list_seller-group {
+      border: solid 1px $border-color;
+      border-radius: 5px;
+      margin-top: $grid-large-spacing/2;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      .list-group-item {
+        .list_item_info-wp {
+          display: none;
+        }
+
+        &:hover,&:focus,&:active {
+          .list_item_info-wp {
+            display: flex;
+          }
+        }
+
+        &:first-of-type {
+          border-top: 0;
+          margin-top: -24px;
+          border-top-right-radius: 5px;
+          border-top-left-radius: 5px;
+        }
+
+        &:last-of-type {
+          border-bottom: 0;
+          margin-bottom: -24px;
+          border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+      }
+
+      .shopping-list_seller-group_name,
+      .shopping-list_seller-group_total {
+        position: relative;
+        text-transform: uppercase;
+        z-index: 10;
+
+        span {
+          padding: 5px;
+          background: $white;
+          @include font-scale("1x");
+          font-weight: bold;
+
+          &.empty {
+            background: transparent;
+          }
+        }
+      }
+
+      .shopping-list_seller-group_name {
+        top: -15px;
+        padding-left: 15px;
+      }
+
+      .shopping-list_seller-group_total {
+        top: 10px;
+        text-align: right;
+        padding-right: 15px;
+      }
+    }
+
+    .shopping-list_link-btn,
+    .shopping-list_trash-btn {
+      display: inline-block;
+      margin-left: $grid-spacing * 2;
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    .list {
+      width: 100%;
+    }
+
+    .list_item {
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+      }
+
+      .list_item_name {
+        @include font-scale("2x");
+        font-weight: bold;
+        padding: 0;
+        background: transparent;
+        outline: 0;
+        border: 0;
+        margin: 0;
+        height: initial;
+        outline-style:none;
+        box-shadow:none;
+        border-color:transparent;
+      }
+
+      .list_item_thumb {
+        border: solid 1px $border-color;
+        width: 100%;
+      }
+
+      .list_item_info-wp {
+        margin-top: $grid-spacing;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .list_item_title {
+        @include font-scale("1x");
+        width: 100%;
+        overflow: hidden;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .list_item_seller {
+        font-weight: bold;
+      }
+
+      .list_item_price {
+        @include font-scale("0.5x");
+        font-weight: bold;
+      }
+
+      .list_item_show-btn {
+        @include font-scale("0.5x");
+        text-align: center;
+      }
+
+      .list_item_sdesc {
+        @include font-scale("0.5x");
+      }
+
+      .list_item_more,
+      .list_item_site {
+        font-weight: bold;
+        @include font-scale("0.5x");
+        margin-top: 5px;
+      }
+    }
+  }
+}
+// SHOPPING LIST END
+// SUGGESTION LIST START
+.suggestion-list {
+  width:100%;
+  .list_item {
+    &.head{
+      background: #f1f1f1;
+    }
+    &:active,
+    &:focus,
+    &:hover {
+      outline: none;
+    }
+
+    .list_item_thumb {
+      border: solid 1px $border-color;
+      width: 100%;
+    }
+
+    .list_item_info-wp {
+      p {
+        margin: 0;
+      }
+
+      .list_item_title {
+        @include font-scale("2x");
+      }
+
+      .list_item_seller {
+        font-weight: bold;
+      }
+
+      .list_item_sdesc {
+        @include font-scale("0.5x");
+      }
+    }
+
+    .list_item_more,
+    .list_item_site {
+      font-weight: bold;
+      @include font-scale("1x");
+      margin-top: 5px;
+      float:right;
+    }
+
+    .list_item_price {
+      text-align:right;
+      @include font-scale("2x");
+      font-weight: bold;
+    }
+
+    .list_item_logo {
+      width: 70px;
+      display: block;
+      margin-top: $grid-spacing;
+    }
+
+  }
+}
+
+.ListSelector-list {
+  .list-group-item {
+    background: transparent;
+    font-weight: bold;
+    @include font-scale("2x");
+    cursor: pointer;
+    // padding: 0;
+    @include transition(0.1s ease);
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+
+    .icon {
+      display: none;
+    }
+
+    &:hover {
+      @include font-scale("3x");
+
+      .icon {
+        display: inline-block;
+        padding-left: $grid-spacing*2;
+      }
+    }
+
+    &.selected {
+      @include font-scale("4x");
+    }
+  }
+
+  .ListSelector-list_remove {
+    position: absolute;
+  }
+}
+// SUGGESTION LIST END
